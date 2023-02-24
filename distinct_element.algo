@@ -1,0 +1,27 @@
+ALGORITHM Array_of_Distinct_Element
+VAR
+    i, j, sum: INTEGER;
+    set1 : ARRAY_OF INTEGER[4];// declaring set1 array and define its length.
+    set2 : ARRAY_OF INTEGER[5];// declaring set2 array and define its length.
+    set3 : ARRAY_OF INTEGER[];// declaring the array of distinct element empty.
+BEGIN
+    set1 := {3, 1, 7, 9};
+    set2 := {2, 4, 1, 9, 3};
+    set3 := {};
+    sum := 0;
+    FOR i FROM 0 TO 3 STEP 1  DO
+        READ (set1);
+    END_FOR
+    FOR j FROM 0 TO 4 STEP 1  DO
+        READ (set2);
+    END_FOR
+    WHILE (set1[i] := set2[j]) DO
+        set2[j]:=set2[j-1];//removes set2 elements which is present in set1
+        j--;
+    END_WHILE
+    IF (set1[i]<>set2[j]) THEN//no elements of set1 present in set2
+        set3:=set2;
+        sum:=sum + set3[j];
+    END_IF
+    WRITE(sum " " ("distinct elements:" set3[j]));
+END
