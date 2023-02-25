@@ -20,7 +20,7 @@ BEGIN
         j--;
     END_WHILE
     IF (set1[i]<>set2[j]) THEN//no elements of set1 present in set2
-        distinct_elt[k]:={set1[i],set2[j]};
+        distinct_elt[k] := {set1[i]","" "set2[j]};
         sum:=sum + distinct_elt[k];
     END_IF
     WRITE(sum " " ("distinct elements:" distinct_elt[k]));
