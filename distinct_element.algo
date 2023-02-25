@@ -3,11 +3,11 @@ VAR
     i, j, sum: INTEGER;
     set1 : ARRAY_OF INTEGER[4];// declaring set1 array and define its length.
     set2 : ARRAY_OF INTEGER[5];// declaring set2 array and define its length.
-    set3 : ARRAY_OF INTEGER[];// declaring the array of distinct element empty.
+    distinct_elt : ARRAY_OF INTEGER;// declaring the array of distinct element.
 BEGIN
     set1 := {3, 1, 7, 9};
     set2 := {2, 4, 1, 9, 3};
-    set3 := {};
+    distinct_elt := {distinct_elt[k]};
     sum := 0;
     FOR i FROM 0 TO 3 STEP 1  DO
         READ (set1);
@@ -20,8 +20,8 @@ BEGIN
         j--;
     END_WHILE
     IF (set1[i]<>set2[j]) THEN//no elements of set1 present in set2
-        set3:=set2;
-        sum:=sum + set3[j];
+        distinct_elt[k]:={set1[i],set2[j]};
+        sum:=sum + distinct_elt[k];
     END_IF
-    WRITE(sum " " ("distinct elements:" set3[j]));
+    WRITE(sum " " ("distinct elements:" distinct_elt[k]));
 END

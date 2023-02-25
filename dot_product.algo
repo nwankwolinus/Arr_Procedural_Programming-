@@ -1,0 +1,32 @@
+// 1. Write a procedure, called dot_product which calculates in the variable ps, the dot(scalar) 
+// product of v1 and v2 (v1 and v2 are vectors of IR)
+
+PROCEDURE dot_product(v1, v2 : INTEGER, IR : ARRAY_OF INTEGER[v1][v2]);
+VAR
+    product : INTEGER;
+BEGIN
+    product :=0;
+    FOR i FROM 0 TO v1-1 DO
+        FOR j FROM 0 TO v2-1 DO
+            product:=product + v1[i]*v2[j];
+        END_FOR
+    END_FOR
+END
+
+// 2. Write an algorithm which determines, for n pairs of given vectors, whether two vectors of 
+// given IR are orthogonal, by calling the procedure defined in the previous question. The dot product of two orthogonal vectors is zero.
+
+ALGORITHM orthogonal_vectors
+VAR
+    v1[i], v2[j] := INTEGER;
+    IR : ARRAY_OF INTEGER[v1][v2];
+BEGIN
+    FOR i FROM 0 TO v1-1 DO
+        FOR j FROM 0 TO v2-1  DO
+        READ dot_product(v1[i],v2[j], IR);
+            IF (dot_product (v1[i], v2[j], IR) := 0) THEN
+                WRITE(V1[i] "and" v2[j] "are orthogonal")
+            END_IF
+        END_FOR
+    END_FOR
+END
